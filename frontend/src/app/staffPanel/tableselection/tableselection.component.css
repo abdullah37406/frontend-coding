@@ -1,0 +1,9 @@
+::ng-deep .mat-dialog-container {
+    width: 1000px;
+    height: 500px;
+    }
+    nz-select {
+        width: 100%;
+        border: 1px solid #f04b6c;
+        margin-bottom: 10px;
+      }

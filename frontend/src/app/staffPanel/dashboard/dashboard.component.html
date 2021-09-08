@@ -1,0 +1,295 @@
+<div class="mainDiv">
+    <div class="row">
+        <!-- <div class="col-md-12 logodiv">
+            <p>logo</p>
+        </div> -->
+        <div class="col-md-1 p-0 ">
+            <div class="menu">
+                <i class="fas fa-hamburger logo"></i>
+                <ul class="navList" *ngFor="let parCat of itemCategories; let i = index">
+                    <li (click)="selectedCategory(i)">{{parCat.name}}</li>
+                    <!-- <li (click)="selection('food')">
+                        <i class="fas fa-utensils"></i>
+                        <p>Foods</p>
+                    </li>
+                    <li (click)="selection('drinks')">
+                        <i class="fas fa-glass-martini-alt"></i>
+                        <p>Drinks</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-cookie-bite"></i>
+                        <p>Snacks</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-ice-cream"></i>
+                        <p>Dessert</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-box"></i>
+                        <p>Package</p>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-11">
+            <div class="fixedheader">
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="row header">
+                            <div class="col-md-3">
+                                <p class="name">Burak Ozdemir</p>
+                                <p class="desig">Staff</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="searchBox">
+                                    <i class="fas fa-search pl-1"></i>
+                                    <span>
+                                        <input class="searchText" type="text" placeholder="Search for menu">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex">
+                                <div class="profile">
+                                    <img src="https://cdn.iconscout.com/icon/free/png-256/businessman-707-1128970.png"
+                                        alt="">
+                                    <p>Burak Ozdemir</p>
+                                </div>
+                                <i class="fas fa-user-cog mt-4 ml-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row marginTop">
+                <div class="col-md-8 orders">
+                    <div class="row">
+                        <div class="col-7">
+                            <p class="heading">Choose sub category</p>
+                        </div>
+                        <div class="col-12 linksDiv">
+                            <ng-container *ngFor="let filSubcat of filteredItemSubategories; let i = index">                                
+                                    <a class="sublinks" href="#{{createId(filSubcat.name)}}">{{filSubcat.name}}</a>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 85px;">
+                        <div class="col-12" *ngFor="let filSubcat of filteredItemSubategories">
+                            <p class="subhead" id="{{createId(filSubcat.name)}}">{{filSubcat.name}}</p>
+                            <div class="row">
+                                <ng-container *ngFor="let filItems of filteredItems; let i=index">
+                                    <p>{{call(filSubcat.name,i)}}</p>
+                                    <div class="col-md-4" *ngIf="this.skip=='no'">
+                                        <a *ngIf="this.skip=='no'">
+                                            <img src="{{filItems.imagePath}}">
+                                            <div class="priceDiv">
+                                                <p>{{filItems.name}}</p>
+                                                <p>{{filItems.price}}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="fixedPosition">
+                        <div class="row">
+                            <div class="col-11 d-flex justify-content-between">
+                                <button class="popupbutton" (click)="showTableModal()">Select Table</button>
+                                <button class="popupbutton" (click)="showCustomerModal()">Select Customer</button>
+                            </div>
+                            <div class="col-11 newOrder">
+                                <p>New Order</p>
+                            </div>
+                            <div class="col-11 d-flex justify-content-between">
+                                <p class="mb-0 mt-1">category table no 1</p>
+                                <p class="mb-0 mt-1">Customer Name</p>
+                            </div>
+                            <div class="col-11">
+                                <div class="row oneOrder">
+                                    <div class="col-1">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>Grilled Fish</p>
+                                    </div>
+                                    <div class="col-3 p-0 text-center d-flex justify-content-between">
+                                        <i class="fas fa-minus-square"></i>
+                                        <p class="quantity">1</p>
+                                        <i class="fas fa-plus-square"></i>
+                                    </div>
+                                    <div class="col-2 p-0 text-center">
+                                        <p>250</p>
+                                    </div>
+                                </div>
+                                <div class="row oneOrder">
+                                    <div class="col-1">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>Grilled Fish</p>
+                                    </div>
+                                    <div class="col-3 p-0 text-center d-flex justify-content-between">
+                                        <i class="fas fa-minus-square"></i>
+                                        <p class="quantity">1</p>
+                                        <i class="fas fa-plus-square"></i>
+                                    </div>
+                                    <div class="col-2 p-0 text-center">
+                                        <p>250</p>
+                                    </div>
+                                </div>
+                                <div class="row oneOrder">
+                                    <div class="col-1">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>Grilled Fish</p>
+                                    </div>
+                                    <div class="col-3 p-0 text-center d-flex justify-content-between">
+                                        <i class="fas fa-minus-square"></i>
+                                        <p class="quantity">1</p>
+                                        <i class="fas fa-plus-square"></i>
+                                    </div>
+                                    <div class="col-2 p-0 text-center">
+                                        <p>250</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-11">
+                                <div class="row total">
+                                    <div class="col-6">
+                                        <p>Total</p>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <p>500</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>Discount</p>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <input type="text" name="" id="">
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <button class="save"><i class="fas fa-cloud-upload-alt"></i> Save</button>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <button class="paid"><i class="fas fa-money-bill-wave"></i> Pay Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<nz-modal [(nzVisible)]="tableModalVisibility" nzTitle="Select Table" (nzOnCancel)="cancelTableModal()">
+    <div *nzModalContent>
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <form class="example-form" (ngSubmit)="onSubmitTableModal()" [formGroup]="addTableFormGroup"
+                    #myform1="ngForm">
+                    <div>
+                        <label>Select table category</label>
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select table category"
+                            [formControl]="addTableForm.tableCategory">
+                            <nz-option *ngFor="let type of option" nzLabel=" {{ type.name }} " nzValue="{{ type.id }}">
+                            </nz-option>
+                        </nz-select>
+                        <mdb-error
+                            *ngIf="addTableForm.tableCategory.invalid && (addTableForm.tableCategory.dirty || addTableForm.tableCategory.touched || myform1.submitted)">
+                            {{ getTableCategoryError() }}
+                        </mdb-error>
+                    </div>
+                    <div>
+                        <label>Select table name</label>
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select table name"
+                            [formControl]="addTableForm.tabeleName">
+                            <nz-option *ngFor="let type of option" nzLabel=" {{ type.name }} " nzValue="{{ type.id }}">
+                            </nz-option>
+                        </nz-select>
+                        <mdb-error
+                            *ngIf="addTableForm.tabeleName.invalid && (addTableForm.tabeleName.dirty || addTableForm.tabeleName.touched || myform1.submitted)">
+                            {{ getTableNameError() }}
+                        </mdb-error>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-4 text-center">
+                            <button class="paid">Select</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="customerModalVisibility" nzTitle="Select Customer" (nzOnCancel)="canceleCustomerModal()">
+    <div *nzModalContent>
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <div class="md-form">
+                    <input type="text" class="search" nz-input placeholder="search" Green />
+                </div>
+                <nz-table #sortTablen nzShowSizeChanger nzBordered nzTableLayout="fixed">
+                    <thead>
+                        <tr>
+                            <th class="text-center" *ngFor="let head of headElements; let i = index"
+                                [sortBy]="headElements[i]" scope="col">
+                                {{ head | titlecase }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container>
+                            <tr class="table-row" style="text-align: center">
+                                <td>name</td>
+                                <td>03110006542</td>
+                                <td>Super lab</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </nz-table>
+            </div>
+            <div class="col-5">
+                <form class="example-form" (ngSubmit)="onSubmitCustomerModal()" [formGroup]="addTableFormGroup"
+                    #myform1="ngForm">
+                    <div>
+                        <label>Name</label>
+                        <input type="text" class="categoryInput" [formControl]="addCustomerForm.customerName">
+                        <mdb-error
+                            *ngIf="addCustomerForm.customerName.invalid && (addCustomerForm.customerName.dirty || addCustomerForm.customerName.touched || myform1.submitted)">
+                            {{ getcustomerNameError() }}
+                        </mdb-error>
+                    </div>
+                    <div>
+                        <label>Phone</label>
+                        <input type="text" class="categoryInput" [formControl]="addCustomerForm.customerPhone">
+                        <mdb-error
+                            *ngIf="addCustomerForm.customerPhone.invalid && (addCustomerForm.customerPhone.dirty || addCustomerForm.customerPhone.touched || myform1.submitted)">
+                            {{ getcustomerPhoneError() }}
+                        </mdb-error>
+                    </div>
+                    <div>
+                        <label>Adress</label>
+                        <input type="text" class="categoryInput" [formControl]="addCustomerForm.customerAddress">
+                        <mdb-error
+                            *ngIf="addCustomerForm.customerAddress.invalid && (addCustomerForm.customerAddress.dirty || addCustomerForm.customerAddress.touched || myform1.submitted)">
+                            {{ getcustomerAddressError() }}
+                        </mdb-error>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-4 text-center">
+                            <button class="paid">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nz-modal>

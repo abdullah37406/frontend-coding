@@ -1,0 +1,34 @@
+h3 {
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  
+  .categoryInput {
+    width: 100%;
+    border: 1px solid #f04b6c;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+  }
+  
+  nz-select {
+    width: 100%;
+    border: 1px solid #f04b6c;
+    margin-bottom: 10px;
+  }
+  
+  .save {
+    border: none;
+    outline: none;
+    margin: 10px 0;
+    padding: 10px 0px;
+    background-image: linear-gradient(to right, #f17947, #f04b6c);
+    border-radius: 5px;
+    color: #fff;
+    width: 30%;
+    cursor: pointer;
+  }
