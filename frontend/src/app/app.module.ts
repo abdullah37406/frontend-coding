@@ -29,6 +29,7 @@ import { AllContactsComponent } from './staffPanel/all-contacts/all-contacts.com
 import { ContactDetailComponent } from './staffPanel/contact-detail/contact-detail.component';
 import { AddContactComponent } from './staffPanel/add-contact/add-contact.component';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 registerLocaleData(en);
 
@@ -49,6 +50,7 @@ export function tokenGetter() {
     
   ],
   imports: [
+    NzDropDownModule,
     NzSwitchModule ,
     NzPopconfirmModule,
     MatDialogModule,

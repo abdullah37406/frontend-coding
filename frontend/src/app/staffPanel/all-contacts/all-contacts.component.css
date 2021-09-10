@@ -1,0 +1,60 @@
+.icon {
+  padding: 7px;
+  background-color: #fff;
+  border: 1px solid #f4f3f8;
+  border-radius: 3px;
+  color: #797A80;
+  cursor: pointer;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: bold;
+  color: #000;
+  margin: auto 10px;
+}
+
+.md-form {
+  margin-bottom: 0;
+}
+
+#search {
+  width: 100%;
+}
+
+::placeholder {
+  font-size: 12px;
+}
+
+.fa-search {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+#heading {
+  font-size: 13px;
+  font-weight: bold;
+  color: #000;
+}
+
+.image {
+  height: 45px;
+  width: 45px;
+  border-radius: 10px;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
+
+.designation {
+  font-size: 12px;
+  font-weight: 300;
+  color: #797A80;
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
