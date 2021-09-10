@@ -28,6 +28,11 @@ export class AddContactComponent implements OnInit {
     private snotifyService: ToastrService,
   ) { }
   addItem = new CategoryInfo()
+  facebook = false;
+  twitter = false;
+  linkedin = false;
+
+
   itemImage = "/assets/user.jpg"
   addItemFormGroup: FormGroup;
   @ViewChild(FormGroupDirective) myform;
@@ -103,5 +108,7 @@ export class AddContactComponent implements OnInit {
 
   getNameError() { return this.addItemForm.name.hasError('required') ? 'You must enter first name' : ''; }
   getDesignationError() { return this.addItemForm.designation.hasError('required') ? 'You must enter designation' : ''; }
-  // getLastNameError() { return this.addItemForm.lastName.hasError('required') ? 'You must enter last name' : ''; }
+  getPrimaryPhoneError() { return this.addItemForm.primaryPhone.hasError('required') ? 'You must enter contact number' : ''; }
+  getPrimaryEmailError() { return this.addItemForm.primaryEmail.hasError('required') ? 'You must enter email' : ''; }
+  getBoError() { return this.addItemForm.bio.hasError('required') ? 'You must enter bio' : ''; }
 }

@@ -28,6 +28,7 @@ import { DashboardComponent } from './staffPanel/dashboard/dashboard.component';
 import { AllContactsComponent } from './staffPanel/all-contacts/all-contacts.component';
 import { ContactDetailComponent } from './staffPanel/contact-detail/contact-detail.component';
 import { AddContactComponent } from './staffPanel/add-contact/add-contact.component';
+import { NzSwitchModule } from 'ng-zorro-antd/switch';
 
 registerLocaleData(en);
 
@@ -48,6 +49,7 @@ export function tokenGetter() {
     
   ],
   imports: [
+    NzSwitchModule ,
     NzPopconfirmModule,
     MatDialogModule,
     BrowserModule,
