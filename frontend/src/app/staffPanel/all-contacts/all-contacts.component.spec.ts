@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableselectionComponent } from './tableselection.component';
+import { AllContactsComponent } from './all-contacts.component';
 
-describe('TableselectionComponent', () => {
-  let component: TableselectionComponent;
-  let fixture: ComponentFixture<TableselectionComponent>;
+describe('AllContactsComponent', () => {
+  let component: AllContactsComponent;
+  let fixture: ComponentFixture<AllContactsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableselectionComponent ]
+      declarations: [ AllContactsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TableselectionComponent);
+    fixture = TestBed.createComponent(AllContactsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

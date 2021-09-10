@@ -1,24 +1,10 @@
-// import { PatientInfo } from './../models/patient-info';
-// import { VisitInfo } from './../models/add-visit';
-// import { ServiceInfo } from './../models/add-service';
-// import { DialogDataScanner } from './../models/dialog-data-qr';
-import { TokenStorageService } from './token-storage.service';
-// import { SlotInfo } from './../models/slots-info';
-// import { StaffInfo } from './../models/staff-info';
-// import { EventFunctions } from './../models/event-details-function';
-// import { EventDetails } from './../models/event-details-info';
-// import { PaymentInfo } from './../models/payment-info';
-// import { AddEventInfo } from '../models/add-event-info';
+
 import { LoginInfo } from './../models/login-info';
 // import { User } from './../models/user';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { JwtResponse } from './jwt-response';
 import { CategoryInfo } from '../models/category-info';
-// import { PackageInfo } from '../models/add-package';
-// import { DoctorInfo } from '../models/add-doctor';
-// import { AddAdminInfo } from '../models/add-admin-info';
 
 
 const httpOptions = {
@@ -39,19 +25,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private tokenStorage: TokenStorageService
   ) { }
-
-  public attemptAuth(credentials: LoginInfo): Observable<JwtResponse> {
-    const httpOptionsSaved = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': `${this.baseUrl1}`,
-      })
-    };
-    return this.http.post<JwtResponse>(`${this.baseUrl}/auth/signin`, credentials, httpOptionsSaved);
-  }
 
   public createCategory(data: CategoryInfo): Observable<string> {
     const httpOptionsSaved = {

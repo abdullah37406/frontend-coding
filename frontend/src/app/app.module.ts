@@ -1,5 +1,4 @@
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { CustomMaterialModule } from './core/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,10 +13,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
-import { StaffNavigationComponent } from './staffPanel/staff-navigation/staff-navigation.component';
 import { IconsModule } from 'angular-bootstrap-md';
-import { DashboardComponent } from './staffPanel/dashboard/dashboard.component';
-import { AddcategoriesComponent } from './staffPANEL/addcategories/addcategories.component';
 import { NavigationComponent } from './staffPANEL/navigation/navigation.component';
 import { AllProductsComponent } from './staffPANEL/all-products/all-products.component';
 import { AddproductComponent } from './staffPanel/addproduct/addproduct.component';
@@ -27,10 +23,11 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { EditItemComponent } from './staffPanel/edit-item/edit-item.component'
 import {MatDialogModule} from '@angular/material/dialog';
-import { TableselectionComponent } from './staffPanel/tableselection/tableselection.component';
-import { CustomerselectionComponent } from './staffPanel/customerselection/customerselection.component';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
-import { TablesComponent } from './staffPanel/tables/tables.component';
+import { DashboardComponent } from './staffPanel/dashboard/dashboard.component';
+import { AllContactsComponent } from './staffPanel/all-contacts/all-contacts.component';
+import { ContactDetailComponent } from './staffPanel/contact-detail/contact-detail.component';
+import { AddContactComponent } from './staffPanel/add-contact/add-contact.component';
 
 registerLocaleData(en);
 
@@ -40,17 +37,15 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    StaffNavigationComponent,
-    DashboardComponent,
-    AddcategoriesComponent,
     NavigationComponent,
     AllProductsComponent,
     AddproductComponent,
     EditItemComponent,
-    TableselectionComponent,
-    CustomerselectionComponent,
-    TablesComponent
+    DashboardComponent,
+    AllContactsComponent,
+    ContactDetailComponent,
+    AddContactComponent,
+    
   ],
   imports: [
     NzPopconfirmModule,
