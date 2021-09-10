@@ -1,0 +1,56 @@
+h3 {
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.categoryInput {
+  width: 100%;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  outline: none;
+  border: 1px solid #f3f3f3;
+}
+
+nz-select {
+  width: 100%;
+  border: 2px solid #f04b6c;
+  margin-bottom: 10px;
+}
+
+.save {
+  border: none;
+  outline: none;
+  margin: 10px 0;
+  padding: 10px 0px;
+  background-image: linear-gradient(to right, #f17947, #f04b6c);
+  border-radius: 5px;
+  color: #fff;
+  width: 30%;
+  cursor: pointer;
+}
+#img-icon {
+  background-color: #fff !important;
+  border: 2px solid #f3f3f3;
+  color: red;
+  border-radius: 50px;
+  position: absolute;
+  padding: 10px;
+  right: 10px;
+  top:0;
+  font-size: 12px;
+  cursor: pointer;
+}
+::ng-deep .ant-upload-list {
+  display: none !important;
+}
+.img{
+  height: 120px;
+  width: 120px;
+  border: 5px solid #f3f3f3;
+  border-radius: 60px;
+}

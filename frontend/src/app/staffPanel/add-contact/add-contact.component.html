@@ -1,1 +1,62 @@
-<p>add-contact works!</p>
+<div class="row">
+    <div class="col-12 text-center">
+        <h3>Create New Contact</h3>
+    </div>
+    <div class="col-7">
+        <div class="row justify-content-center">
+            <div class="col-7 mt-3">
+                <form class="example-form" (ngSubmit)="onSubmitItemDetail()" [formGroup]="addItemFormGroup"
+                    #myform1="ngForm">
+                    <div class="text-right">
+                        <nz-upload [nzBeforeUpload]="beforeUpload" [(nzFileList)]="fileList">
+                            <i class="fas fa-pencil-alt" id="img-icon"></i>
+                        </nz-upload>
+                        <img class="img" src="{{ itemImage }}" alt="Profile pic" />
+                    </div>
+                    
+                    <div>
+                        <input type="text" class="categoryInput" [formControl]="addItemForm.name" placeholder="First Name">
+                        <mdb-error
+                            *ngIf="addItemForm.name.invalid && (addItemForm.name.dirty || addItemForm.name.touched || myform1.submitted)">
+                            {{ getNameError() }}
+                        </mdb-error>
+                    </div>
+                    <div>
+                        <input type="text" class="categoryInput" [formControl]="addItemForm.name" placeholder="Last Name">
+                    </div>
+                    <div>
+                        <input type="text" class="categoryInput" [formControl]="addItemForm.designation" placeholder="Designation">
+                        <mdb-error
+                            *ngIf="addItemForm.designation.invalid && (addItemForm.designation.dirty || addItemForm.designation.touched || myform1.submitted)">
+                            {{ getDesignationError() }}
+                        </mdb-error>
+                    </div>
+                    
+                    <!-- <div >
+                        <label for="Picture">Select picture</label>
+                        <div class="input-group">
+                            <div class="clearfix">
+                                <nz-upload [nzRemove]="onRemove"  [nzBeforeUpload]="beforeUpload" nzListType="picture-card" [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 1" [nzPreview]="handlePreview">
+                                    <div>
+                                        <i nz-icon nzType="plus"></i>
+                                        <div style="margin-top: 8px">Upload</div>
+                                    </div>
+                                </nz-upload>
+                                <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" ngDefaultControl (nzOnCancel)="previewVisible = false">
+                                    <ng-template #modalContent>
+                                        <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+                                    </ng-template>
+                                </nz-modal>
+                            </div>
+                            <mdb-error *ngIf="((this.fileList.length < 1) && myform1.submitted)">
+                                {{ getImageError() }}
+                            </mdb-error>
+                        </div>
+                    </div> -->
+
+                    <button type="submit" class="save"><i class="fas fa-sitemap"></i> Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

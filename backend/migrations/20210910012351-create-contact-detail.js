@@ -9,7 +9,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       contactId: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Contacts',
+          key: 'id',
+        }
       },
       primaryPhone: {
         type: Sequelize.STRING
