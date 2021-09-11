@@ -125,6 +125,7 @@ this.checkPhoneValidity()
         this.contactImage = file.preview;
         this.addContact.file = file.preview;
         this.addContact.imgPath = file.name;
+        debugger
         // this.addContact.newImage=1;
       }
     };

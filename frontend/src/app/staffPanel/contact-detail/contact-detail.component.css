@@ -1,7 +1,12 @@
-.main {
+#nocontact{
+  font-size: 40px ;
+  font-weight: bold;
+  margin: auto;
+}.main {
   justify-content: center;
   background-color: #fff;
   padding-top: 20px;
+  height: 100%;
 }
 
 .image {

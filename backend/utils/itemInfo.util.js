@@ -7,7 +7,7 @@ class ItemInfo {
 
   async createContact(info) {
     var fileName = null;
-    if (info.imgePath != null) {
+    if (info.imgPath != null) {
       fileName = imageUpload.fileUpload(info.file, info.imgPath, "contact-images");
     } else {
       fileName = "/assets/user.jpg";
