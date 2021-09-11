@@ -33,7 +33,6 @@ export class ContactDetailComponent implements OnInit {
   setIdforDetailSuccess(data) {
     this.detail="yes";
    this.specificContact=data.getDetail;
-   debugger
 
   }
   setIdforDetailError(error) {

@@ -53,3 +53,12 @@ nz-select {
   border: 5px solid #f3f3f3;
   border-radius: 60px;
 }
+
+button {
+  margin-top: 10px;
+  background-color: #6655be;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 15px;
+}

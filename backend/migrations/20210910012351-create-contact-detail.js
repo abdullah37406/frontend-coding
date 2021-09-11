@@ -34,6 +34,10 @@ module.exports = {
       bio: {
         type: Sequelize.STRING
       },
+      meeting: {
+        type: Sequelize.STRING,
+        allowNull:true
+      },
       facebook: {
         type: Sequelize.BOOLEAN,
         allowNull:true

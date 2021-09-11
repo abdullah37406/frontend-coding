@@ -14,14 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
 import { IconsModule } from 'angular-bootstrap-md';
-import { NavigationComponent } from './staffPANEL/navigation/navigation.component';
-import { AllProductsComponent } from './staffPANEL/all-products/all-products.component';
-import { AddproductComponent } from './staffPanel/addproduct/addproduct.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { EditItemComponent } from './staffPanel/edit-item/edit-item.component'
 import {MatDialogModule} from '@angular/material/dialog';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { DashboardComponent } from './staffPanel/dashboard/dashboard.component';
@@ -40,10 +36,7 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    AllProductsComponent,
-    AddproductComponent,
-    EditItemComponent,
+   
     DashboardComponent,
     AllContactsComponent,
     ContactDetailComponent,

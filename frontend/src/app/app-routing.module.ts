@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NavigationComponent } from './staffPANEL/navigation/navigation.component';
 import { DashboardComponent } from './staffPanel/dashboard/dashboard.component';
 import { AddContactComponent } from './staffPanel/add-contact/add-contact.component';
 import { AllContactsComponent } from './staffPanel/all-contacts/all-contacts.component';
@@ -10,36 +9,39 @@ import { ContactDetailComponent } from './staffPanel/contact-detail/contact-deta
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'navigation',
+    redirectTo: 'addContact',
     pathMatch: 'full'
   },
   {
-    path: 'navigation',
-    component: NavigationComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'addContact',
-        pathMatch: 'full'
-      },
-      {
-        path: 'dahboard',
-        component: DashboardComponent,
-      },
-      {
-        path: 'addContact',
-        component: AddContactComponent,
-      },
-      {
-        path: 'allContacts',
-        component: AllContactsComponent,
-      },
-      {
-        path: 'contactDetail',
-        component: ContactDetailComponent,
-      },
-    ]
+    path: 'addContact',
+    component: AddContactComponent,
   },
+  {
+    path: 'dahboard',
+    component: DashboardComponent,
+  },
+  {
+    path: 'allContacts',
+    component: AllContactsComponent,
+  },
+  {
+    path: 'contactDetail',
+    component: ContactDetailComponent,
+  },
+  // {
+  //   path: 'navigation',
+  //   component: NavigationComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       redirectTo: 'addContact',
+  //       pathMatch: 'full'
+  //     },
+      
+      
+      
+  //   ]
+  // },
   {
     path: '**', redirectTo: 'staff-panel'
   }

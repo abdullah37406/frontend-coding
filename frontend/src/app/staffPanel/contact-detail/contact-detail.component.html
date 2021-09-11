@@ -45,12 +45,12 @@
                         <p class="detail">{{this.specificContact.ContactDetail.SecondaryEmail}}</p>
                     </div>
                 </div>
-                <div class="row margin">
+                <div class="row margin" *ngIf="this.specificContact.ContactDetail.meeting">
                     <div class="col-3">
                         <p class="label">Meeting</p>
                     </div>
                     <div class="col-9">
-                        <p class="detail">whenffsgsggv rfjrjr</p>
+                        <p class="detail">{{this.specificContact.ContactDetail.meeting}}</p>
                     </div>
                 </div>
                 <div class="row margin">

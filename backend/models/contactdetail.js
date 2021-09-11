@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     primaryEmail: DataTypes.STRING,
     SecondaryEmail: DataTypes.STRING,
     bio: DataTypes.STRING,
+    meeting: DataTypes.STRING,
     facebook: DataTypes.BOOLEAN,
     twitter: DataTypes.BOOLEAN,
     linkwdin: DataTypes.BOOLEAN

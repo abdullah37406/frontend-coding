@@ -31,13 +31,6 @@ export class AllContactsComponent implements OnInit {
   }
   getAllContactsSuccess(data) {
    this.allcontactsArray=data.getContacts;
-  //  this.allcontactsArray.forEach(contact=>{
-  //   var newContact={
-  //     name:contact.firstName+contact.lastName,
-  //     designation:contact.designation,
-  //   }
-  //  this.duplicateArray.push(newContact);
-  // })
   this.copylistOfData=this.allcontactsArray;
   }
   getAllContactsError(error) {

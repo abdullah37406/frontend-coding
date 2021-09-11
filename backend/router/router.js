@@ -15,15 +15,4 @@ module.exports = function(app) {
     app.get("/api/allContacts/get", controller.getAllContacts);
     app.post("/api/oneContact/set", controller.setIdforDetail);
     app.post("/api/oneContact/get", controller.getDetail);
-
-    app.post("/api/parentCategories/get", controller.getParentCategories);
-    app.post("/api/subcategory/add", controller.createSubcategory);
-    app.post("/api/categoriesSubcategories/get", controller.getcategorySubcategories);
-    app.post("/api/name/update", controller.updateName);
-    app.post("/api/name/delete", controller.deleteItem);
-    app.get("/api/allItems/get", controller.getAllItems);
-    app.post("/api/getOneItem", controller.detailForOne);
-    app.post("/api/item/update", controller.updateItem);
-    app.get("/api/everyThing/get", controller.getEveryThing);
-
 };

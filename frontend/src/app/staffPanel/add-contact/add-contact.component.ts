@@ -36,7 +36,7 @@ export class AddContactComponent implements OnInit {
 
   contactImage = "/assets/user.jpg"
   addContactFormGroup: FormGroup;
-  @ViewChild(FormGroupDirective) myform;
+  @ViewChild(FormGroupDirective) myform1;
   public addContactForm = {
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl(''),
@@ -95,7 +95,7 @@ this.checkPhoneValidity()
     );
   }
   createContactSuccess(data) {
-    this.myform.resetForm();
+    this.myform1.resetForm();
     this.contactImage="/assets/user.jpg";
     this.facebook=false;
     this.twitter=false;
@@ -125,8 +125,6 @@ this.checkPhoneValidity()
         this.contactImage = file.preview;
         this.addContact.file = file.preview;
         this.addContact.imgPath = file.name;
-        debugger
-        // this.addContact.newImage=1;
       }
     };
     return false;
