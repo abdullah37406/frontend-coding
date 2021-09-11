@@ -48,6 +48,26 @@ export class AuthService {
     };
     return this.http.get(`${this.baseUrl}/allContacts/get`, httpOptionsSaved);
   }
+  public setIdforDetail(data: ContactInfo): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': `${this.baseUrl1}`,
+      })
+    };
+    return this.http.post<string>(`${this.baseUrl}/oneContact/set`, data, httpOptionsSaved);
+  }
+  public getDetail(data: ContactInfo): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': `${this.baseUrl1}`,
+      })
+    };
+    return this.http.post<string>(`${this.baseUrl}/oneContact/get`, data, httpOptionsSaved);
+  }
   public createCategory(data: CategoryInfo): Observable<string> {
     const httpOptionsSaved = {
       headers: new HttpHeaders({

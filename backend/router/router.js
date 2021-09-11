@@ -13,6 +13,9 @@ module.exports = function(app) {
     });
     app.post("/api/contact/add", controller.createContact);
     app.get("/api/allContacts/get", controller.getAllContacts);
+    app.post("/api/oneContact/set", controller.setIdforDetail);
+    app.post("/api/oneContact/get", controller.getDetail);
+
     app.post("/api/parentCategories/get", controller.getParentCategories);
     app.post("/api/subcategory/add", controller.createSubcategory);
     app.post("/api/categoriesSubcategories/get", controller.getcategorySubcategories);

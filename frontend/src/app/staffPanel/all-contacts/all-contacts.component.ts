@@ -11,6 +11,7 @@ import { ContactInfo } from 'src/app/models/contact-info';
 export class AllContactsComponent implements OnInit {
 
   allcontactsArray:ContactInfo[]=[]
+  specificContact=new ContactInfo();
   constructor(
     private Jarwis: AuthService,
     private snotifyService: ToastrService,
@@ -27,9 +28,25 @@ export class AllContactsComponent implements OnInit {
   }
   getAllContactsSuccess(data) {
    this.allcontactsArray=data.getContacts;
-    debugger
   }
   getAllContactsError(error) {
+    this.snotifyService.clear();
+    this.snotifyService.error(error.error.message, "", {
+      timeOut: 1000,
+      closeButton: true,
+    });
+  }
+  showDetails(index){
+    this.specificContact.id=this.allcontactsArray[index].id;
+    this.Jarwis.setIdforDetail(this.specificContact).subscribe(
+      (data) => this.setIdforDetailSuccess(data),
+      (error) => this.setIdforDetailError(error)
+    );
+  }
+  setIdforDetailSuccess(data) {
+   this.allcontactsArray=data.getContacts;
+  }
+  setIdforDetailError(error) {
     this.snotifyService.clear();
     this.snotifyService.error(error.error.message, "", {
       timeOut: 1000,

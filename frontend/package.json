@@ -25,6 +25,7 @@
     "@auth0/angular-jwt": "^3.0.1",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@types/chart.js": "^2.9.21",
+    "@types/socket.io-client": "^3.0.0",
     "angular-bootstrap-md": "^10.1.1",
     "angular-font-awesome": "^3.1.2",
     "angular-jwt": "github:auth0/angular-jwt",
@@ -41,6 +42,7 @@
     "ngx-toastr": "^11.2.0",
     "rxjs": "^6.5.5",
     "save": "^2.4.0",
+    "socket.io-client": "^4.2.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

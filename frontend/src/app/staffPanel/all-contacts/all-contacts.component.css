@@ -74,3 +74,11 @@ h3 {
   box-shadow: 0 1px 0 0 #6655be;
   border-bottom: 1px solid #6655be;
 }
+.spDtl{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+.spDtl:hover{
+  background-color: #fff;
+}

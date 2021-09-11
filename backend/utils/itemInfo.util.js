@@ -26,7 +26,7 @@ class ItemInfo {
       primaryPhone: info.priPhone,
       primaryEmail: info.priEmail,
       secondaryPhone: info.secPhone,
-      secondaryEmail: info.secEmail,
+      SecondaryEmail: info.secEmail,
       bio: info.bio,
       facebook: info.facebook,
       twitter: info.twitter,
@@ -38,6 +38,19 @@ class ItemInfo {
       where: {
         isDeleted: false,
       },
+    });
+  }
+  async getDetail(info) {
+    return await db.Contact.findOne({
+      where: {
+        id: info.id,
+      },
+      include: [
+        {
+          model: db.ContactDetail,
+          required: true,
+        }
+      ]
     });
   }
   async parentItemCategories() {

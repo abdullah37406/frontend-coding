@@ -21,7 +21,7 @@
         <i class="fas fa-search"></i>
     </div>
     <div class="col-12">
-        <div class="row mt-2 mb-4" *ngFor="let data of allcontactsArray;">
+        <div class="row spDtl" *ngFor="let data of allcontactsArray; let i=index" (click)="showDetails(i)">
             <div class="col-2 text-right">
                 <img src="{{data.imgPath}}" class="image" alt="">
             </div>
