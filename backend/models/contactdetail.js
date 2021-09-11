@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      ContactDetail.belongsTo(models.Contact, {
+        foreignKey: 'contactId',
+        onDelete: 'CASCADE'
+      })
     }
   };
   ContactDetail.init({

@@ -21,25 +21,30 @@ module.exports = {
         type: Sequelize.STRING
       },
       secondaryPhone: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:true
       },
       primaryEmail: {
         type: Sequelize.STRING
       },
       SecondaryEmail: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:true
       },
       bio: {
         type: Sequelize.STRING
       },
       facebook: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull:true
       },
       twitter: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull:true
       },
       linkwdin: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull:true
       },
       createdAt: {
         allowNull: false,

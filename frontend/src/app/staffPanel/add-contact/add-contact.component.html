@@ -3,24 +3,24 @@
         <h3>Create New Contact</h3>
     </div>
     <div class="col-6 mt-3">
-        <form class="example-form" (ngSubmit)="onSubmitItemDetail()" [formGroup]="addContactFormGroup" #myform1="ngForm">
+        <form class="example-form" (ngSubmit)="onSubmitContactDetail()" [formGroup]="addContactFormGroup" #myform1="ngForm">
             <div class="row">
                 <div class="text-right col-12">
                     <nz-upload [nzBeforeUpload]="beforeUpload" [(nzFileList)]="fileList">
                         <i class="fas fa-pencil-alt" id="img-icon"></i>
                     </nz-upload>
-                    <img class="img" src="{{ itemImage }}" alt="Profile pic" />
+                    <img class="img" src="{{ contactImage }}" alt="Profile pic" />
                 </div>
 
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addContactForm.name" placeholder="First Name">
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.firstName" placeholder="Firstv Name">
                     <mdb-error
-                        *ngIf="addContactForm.name.invalid && (addContactForm.name.dirty || addContactForm.name.touched || myform1.submitted)">
+                        *ngIf="addContactForm.firstName.invalid && (addContactForm.firstName.dirty || addContactForm.firstName.touched || myform1.submitted)">
                         {{ getNameError() }}
                     </mdb-error>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addContactForm.name" placeholder="Last Name">
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.lastName" placeholder="Last Name">
 
                 </div>
                 <div class="col-md-6">
@@ -34,7 +34,7 @@
 
                 <div class="col-md-6">
                     <input type="text" class="categoryInput" [formControl]="addContactForm.primaryPhone"
-                        placeholder="Primary Phone">
+                        placeholder="Primary Phone" [textMask]="{mask: phonemask}">
                     <mdb-error
                         *ngIf="addContactForm.primaryPhone.invalid && (addContactForm.primaryPhone.dirty || addContactForm.primaryPhone.touched || myform1.submitted)">
                         {{ getPrimaryPhoneError() }}
@@ -43,7 +43,7 @@
 
                 <div class="col-md-6">
                     <input type="text" class="categoryInput" [formControl]="addContactForm.secondaryPhone"
-                        placeholder="Secondary Phone">
+                        placeholder="Secondary Phone" [textMask]="{mask: phonemask}">
                 </div>
                 <div class="col-md-6">
                     <input type="text" class="categoryInput" [formControl]="addContactForm.primaryEmail"
@@ -66,7 +66,7 @@
                     <input type="text" class="categoryInput" [formControl]="addContactForm.bio" placeholder="Bio">
                     <mdb-error
                         *ngIf="addContactForm.bio.invalid && (addContactForm.bio.dirty || addContactForm.bio.touched || myform1.submitted)">
-                        {{ getBoError() }}
+                        {{ getBioError() }}
                     </mdb-error>
                 </div>
                 <div class="col-md-2 text-center">

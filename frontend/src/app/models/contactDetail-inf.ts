@@ -9,4 +9,5 @@ export class ContactDetailInfo {
     facebook: boolean;
     twitter: boolean;
     linkedin: boolean;
+    meeting:string;
 }

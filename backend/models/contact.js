@@ -11,13 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Contact.hasOne(models.ContactDetail, {
+        foreignKey: 'contactId',
+        onDelete: 'CASCADE'
+      })
     }
   };
   Contact.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     designation: DataTypes.STRING,
-    imgPath: DataTypes.STRING
+    imgPath: DataTypes.STRING,
+    isDeleted: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Contact',

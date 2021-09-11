@@ -4,19 +4,33 @@ const imageUpload = require("../imageuploading.js")
 
 class ItemInfo {
   constructor() { }
-  
-  async createItemCategory(info) {
-    return await db.Categories.create({
-      name: info.name,
+
+  async createContact(info) {
+    var fileName = null;
+    if (info.imgePath != null) {
+      fileName = imageUpload.fileUpload(info.file, info.imgPath, "contact-images");
+    } else {
+      fileName = "/assets/user.jpg";
+    }
+    return await db.Contact.create({
+      firstName: info.firstName,
+      lastName: info.lastName,
+      designation: info.designation,
+      imgPath: fileName,
       isDeleted: false,
-      userId: "1",
     });
   }
-  async createTableCategory(info) {
-    return await db.TableCategory.create({
-      name: info.name,
-      isDeleted: false,
-      userId: "1",
+  async createContactDetail(info, id) {
+    return await db.ContactDetail.create({
+      contactId: id,
+      primaryPhone: info.priPhone,
+      primaryEmail: info.priEmail,
+      secondaryPhone: info.secPhone,
+      secondaryEmail: info.secEmail,
+      bio: info.bio,
+      facebook: info.facebook,
+      twitter: info.twitter,
+      linkwdin: info.linkedin,
     });
   }
   async parentItemCategories() {
@@ -164,7 +178,7 @@ class ItemInfo {
   async detailForOne(info) {
     return await db.Items.findOne({
       where: {
-        id:info.id,
+        id: info.id,
         isDeleted: false,
       },
     });
@@ -172,24 +186,24 @@ class ItemInfo {
   async subcategoryForOne(info) {
     return await db.SubCategories.findOne({
       where: {
-        id:info,
+        id: info,
         isDeleted: false,
       },
     });
   }
   async updateItem(info) {
-    if(info.itemInfo.newImage==1){
+    if (info.itemInfo.newImage == 1) {
       var fileName = null;
       imageUpload.fileDelete(info.itemInfo.oldPath, "item-images");
       fileName = imageUpload.fileUpload(info.itemInfo.file1, info.itemInfo.imagePath, "item-images");
     }
     return await db.Items.update({
-      subcategoryId:info.id,
-      name:info.itemInfo.name,
-      description:info.itemInfo.description,
-      price:info.itemInfo.price,
-      imagePath:fileName
-    },{
+      subcategoryId: info.id,
+      name: info.itemInfo.name,
+      description: info.itemInfo.description,
+      price: info.itemInfo.price,
+      imagePath: fileName
+    }, {
       where: {
         id: info.itemInfo.id,
       }

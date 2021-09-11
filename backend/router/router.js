@@ -11,7 +11,7 @@ module.exports = function(app) {
 
         next();
     });
-    app.post("/api/category/add", controller.createCategory);
+    app.post("/api/contact/add", controller.createContact);
     app.post("/api/parentCategories/get", controller.getParentCategories);
     app.post("/api/subcategory/add", controller.createSubcategory);
     app.post("/api/categoriesSubcategories/get", controller.getcategorySubcategories);

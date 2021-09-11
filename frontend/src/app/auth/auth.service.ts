@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { CategoryInfo } from '../models/category-info';
+import { ContactInfo } from '../models/contact-info';
 
 
 const httpOptions = {
@@ -27,6 +28,17 @@ export class AuthService {
     private http: HttpClient,
   ) { }
 
+  public createContact(data: ContactInfo): Observable<string> {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': `${this.baseUrl1}`,
+        // 'x-access-token': this.tokenStorage.getToken()
+      })
+    };
+    return this.http.post<string>(`${this.baseUrl}/contact/add`, data, httpOptionsSaved);
+  }
   public createCategory(data: CategoryInfo): Observable<string> {
     const httpOptionsSaved = {
       headers: new HttpHeaders({
@@ -36,7 +48,7 @@ export class AuthService {
         // 'x-access-token': this.tokenStorage.getToken()
       })
     };
-    return this.http.post<string>(`${this.baseUrl}/category/add`, data, httpOptionsSaved);
+    return this.http.post<string>(`${this.baseUrl}/contact/ad`, data, httpOptionsSaved);
   }
   public getParentCategories(data: CategoryInfo)  : Observable<string>{
     const httpOptionsSaved = {

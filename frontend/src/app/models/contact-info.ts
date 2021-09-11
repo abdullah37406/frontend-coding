@@ -6,6 +6,6 @@ export class ContactInfo {
     lastName: string;
     designation: string;
     imgPath: string;
-    file1: File;
+    file: File;
     contactDetail: ContactDetailInfo;
 }

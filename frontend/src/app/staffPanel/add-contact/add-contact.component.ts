@@ -3,8 +3,8 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } f
 import { NzUploadFile } from 'ng-zorro-antd/upload';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
-import { CategoryInfo } from 'src/app/models/category-info';
-import { ItemInfo } from 'src/app/models/item-info';
+import { ContactInfo } from 'src/app/models/contact-info';
+import { ContactDetailInfo } from 'src/app/models/contactDetail-inf';
 function getBase64(file: File): Promise<string | ArrayBuffer | null> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -27,17 +27,18 @@ export class AddContactComponent implements OnInit {
     private Jarwis: AuthService,
     private snotifyService: ToastrService,
   ) { }
-  addContact = new CategoryInfo()
+  addContact = new ContactInfo()
   facebook = false;
   twitter = false;
   linkedin = false;
+  phonemask = [/[0-9]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
 
 
-  itemImage = "/assets/user.jpg"
+  contactImage = "/assets/user.jpg"
   addContactFormGroup: FormGroup;
   @ViewChild(FormGroupDirective) myform;
   public addContactForm = {
-    name: new FormControl('', [Validators.required]),
+    firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl(''),
     designation: new FormControl('', [Validators.required]),
     primaryPhone: new FormControl('', [Validators.required]),
@@ -52,42 +53,66 @@ export class AddContactComponent implements OnInit {
   }
   ngOnInit(): void {
     this.createForm();
+    this.addContact.contactDetail = new ContactDetailInfo()
+this.checkPhoneValidity()
   }
   createForm() {
     this.addContactFormGroup = this.fb.group(this.addContactForm);
   }
+  checkPhoneValidity(){
 
-  onSubmitItemDetail() {
-    //   if (this.addContactFormGroup.invalid) {
-    //     return
-    //   }
-    //   this.addContact.parentCategory = this.addContactForm.parentCategory.value;
-    //   this.addContact.name = this.addContactForm.subCategory.value;
-    //   this.addContact.itemInfo.name = this.addContactForm.name.value;
-    //   this.addContact.itemInfo.description = this.addContactForm.description.value;
-    //   this.addContact.itemInfo.price = this.addContactForm.price.value;
-    //   this.addContact.itemOrTable = "itemCreate";
-    //   this.Jarwis.createCategory(this.addContact).subscribe(
-    //     (data) => this.categorySubmission(data),
-    //     (error) => this.categorySubmissionError(error)
-    //   );
-    // }
-    // categorySubmission(data: any) {
-    //   this.myform.resetForm();
-    //   this.fileList=[];
-    //   this.snotifyService.clear();
-    //   this.snotifyService.success(data.message, "", {
-    //     timeOut: 1000,
-    //     closeButton: true,
-    //   });
-    //   this.getItemCategories();
-    // }
-    // categorySubmissionError(error: any) {
-    //   this.snotifyService.clear();
-    //   this.snotifyService.error(error.error.message, "", {
-    //     timeOut: 1000,
-    //     closeButton: true,
-    //   });
+    this.addContactFormGroup.get('primaryPhone').valueChanges.subscribe(val => {
+      let rep = /_/gi;
+      let rep1 = /-/gi;
+      if(this.addContactForm.primaryPhone.value){
+        let phoneNumber = this.addContactForm.primaryPhone.value.replace(rep, '').replace(rep1, '');
+        if (phoneNumber.length > 0 && phoneNumber.length < 11) {
+          this.addContactFormGroup.get('primaryPhone').setErrors({ 'notFull': true }); 
+        }
+      }
+    });
+  }
+
+  onSubmitContactDetail() {
+    if (this.addContactFormGroup.invalid) {
+      return
+    }
+    this.addContact.firstName = this.addContactForm.firstName.value;
+    this.addContact.lastName = this.addContactForm.lastName.value;
+    this.addContact.designation = this.addContactForm.designation.value;
+    this.addContact.contactDetail.priPhone = this.addContactForm.primaryPhone.value;
+    this.addContact.contactDetail.secPhone = this.addContactForm.secondaryPhone.value;
+    this.addContact.contactDetail.secEmail = this.addContactForm.secondaryEmail.value;
+    this.addContact.contactDetail.priEmail = this.addContactForm.primaryEmail.value;
+    this.addContact.contactDetail.meeting = this.addContactForm.meeting.value;
+    this.addContact.contactDetail.bio = this.addContactForm.bio.value;
+    this.addContact.contactDetail.facebook=this.facebook;
+    this.addContact.contactDetail.twitter=this.twitter;
+    this.addContact.contactDetail.linkedin=this.linkedin;
+    this.Jarwis.createContact(this.addContact).subscribe(
+      (data) => this.createContactSuccess(data),
+      (error) => this.createContactError(error)
+    );
+  }
+  createContactSuccess(data) {
+    this.myform.resetForm();
+    // this.fileList = [];
+    this.contactImage="";
+    this.facebook=false;
+    this.twitter=false;
+    this.linkedin=false;
+    this.snotifyService.clear();
+    this.snotifyService.success(data.message, "", {
+      timeOut: 1000,
+      closeButton: true,
+    });
+  }
+  createContactError(error) {
+    this.snotifyService.clear();
+    this.snotifyService.error(error.error.message, "", {
+      timeOut: 1000,
+      closeButton: true,
+    });
   }
   fileList: NzUploadFile[] = [];
   beforeUpload = (file: NzUploadFile): boolean => {
@@ -98,18 +123,19 @@ export class AddContactComponent implements OnInit {
       file.originFileObj = file as unknown as File;
       this.fileList = this.fileList.concat(file);
       if (this.fileList.length > 0) {
-        this.itemImage = file.preview;
-        // this.editItem.itemInfo.file1 = file.preview;
-        // this.editItem.itemInfo.imagePath = file.name;
-        // this.editItem.itemInfo.newImage=1;
+        this.contactImage = file.preview;
+        this.addContact.file = file.preview;
+        this.addContact.imgPath = file.name;
+        // this.addContact.newImage=1;
       }
     };
     return false;
   };
 
-  getNameError() { return this.addContactForm.name.hasError('required') ? 'You must enter first name' : ''; }
+  getNameError() { return this.addContactForm.firstName.hasError('required') ? 'You must enter first name' : ''; }
   getDesignationError() { return this.addContactForm.designation.hasError('required') ? 'You must enter designation' : ''; }
-  getPrimaryPhoneError() { return this.addContactForm.primaryPhone.hasError('required') ? 'You must enter contact number' : ''; }
+  getPrimaryPhoneError() { return this.addContactForm.primaryPhone.hasError('required') ? 'You must enter contact number' :
+    this.addContactForm.primaryPhone.hasError('notFull') ? 'You must enter Complete Cell Number' : '';}
   getPrimaryEmailError() { return this.addContactForm.primaryEmail.hasError('required') ? 'You must enter email' : ''; }
-  getBoError() { return this.addContactForm.bio.hasError('required') ? 'You must enter bio' : ''; }
+  getBioError() { return this.addContactForm.bio.hasError('required') ? 'You must enter bio' : ''; }
 }

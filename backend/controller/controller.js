@@ -5,26 +5,15 @@ const db = require("../models/index.js");
 const ItemInfo = require("../utils/itemInfo.util.js");
 const itemInfoObj = new ItemInfo();
 
-exports.createCategory = async (req, res) => {
+exports.createContact = async (req, res) => {
     try {
-        if (req.body.itemOrTable == "items") {
-            const category = await itemInfoObj.createItemCategory(req.body);
-            res.status(200).send({
-                message: "Category Added Successfully!",
-            });
-        }
-        else if (req.body.itemOrTable == "tables") {
-            const category = await itemInfoObj.createTableCategory(req.body);
-            res.status(200).send({
-                message: "Category Added Successfully!",
-            });
-        }
-        else if (req.body.itemOrTable == "itemCreate") {
-            const category = await itemInfoObj.createItem(req.body);
-            res.status(200).send({
-                message: "Item Added Successfully!",
-            });
-        }
+        console.log("---------",req.body);
+        console.log("+++++++++",req.body.contactDetail);
+        const contact = await itemInfoObj.createContact(req.body);
+        const contactDetail = await itemInfoObj.createContactDetail(req.body.contactDetail,contact.id);
+        res.status(200).send({
+            message: "Contact Added Successfully!",
+        });
     } catch (error) {
         res.status(500).send({
             message: error.message,
@@ -186,10 +175,10 @@ exports.getEveryThing = async (req, res) => {
         const allsubcategoriesTables = await itemInfoObj.allsubcategoriesTables();
         res.status(200).send({
             getItems: getItems,
-            parentItemCategories:parentItemCategories,
-            parentTableCategories:parentTableCategories,
-            allSubcategoriesItems:allSubcategoriesItems,
-            allsubcategoriesTables:allsubcategoriesTables,
+            parentItemCategories: parentItemCategories,
+            parentTableCategories: parentTableCategories,
+            allSubcategoriesItems: allSubcategoriesItems,
+            allsubcategoriesTables: allsubcategoriesTables,
         });
 
     } catch (error) {

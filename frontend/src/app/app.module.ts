@@ -30,6 +30,7 @@ import { ContactDetailComponent } from './staffPanel/contact-detail/contact-deta
 import { AddContactComponent } from './staffPanel/add-contact/add-contact.component';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { TextMaskModule } from 'angular2-text-mask';
 
 registerLocaleData(en);
 
@@ -50,6 +51,7 @@ export function tokenGetter() {
     
   ],
   imports: [
+    TextMaskModule ,
     NzDropDownModule,
     NzSwitchModule ,
     NzPopconfirmModule,
