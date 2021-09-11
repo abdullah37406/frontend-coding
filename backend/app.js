@@ -22,3 +22,14 @@ var server = app.listen(8000, function () {
 
   console.log("App listening on http://%s:%s", host, port)
 })
+const socket = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:4200",
+  },
+});
+socket.on("connection", (socket) => {
+  console.log("Socket: client connected");
+});
+module.exports.notification = function (type, data) {
+  socket.emit(type, data);
+};
