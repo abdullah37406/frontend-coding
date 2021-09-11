@@ -12,8 +12,8 @@
     </div>
     <div class="col-12">
         <div class="md-form">
-            <!-- Green (keyup)="search(searchText.value)" -->
-            <input type="text" id="search" #searchText nz-input placeholder="search for contact"  />
+            <!-- Green  -->
+            <input type="text" id="search" #searchText nz-input placeholder="search for contact" (keyup)="search(searchText.value)"  />
         </div>
     </div>
     <div class="col-12 d-flex justify-content-between mt-2">
