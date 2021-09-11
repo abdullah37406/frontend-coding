@@ -7,13 +7,24 @@ const itemInfoObj = new ItemInfo();
 
 exports.createContact = async (req, res) => {
     try {
-        console.log("---------",req.body);
-        console.log("+++++++++",req.body.contactDetail);
         const contact = await itemInfoObj.createContact(req.body);
         const contactDetail = await itemInfoObj.createContactDetail(req.body.contactDetail,contact.id);
         res.status(200).send({
             message: "Contact Added Successfully!",
         });
+    } catch (error) {
+        res.status(500).send({
+            message: error.message,
+        });
+    }
+};
+exports.getAllContacts = async (req, res) => {
+    try {
+        const getContacts = await itemInfoObj.getAllContacts();
+        res.status(200).send({
+            getContacts: getContacts,
+        });
+
     } catch (error) {
         res.status(500).send({
             message: error.message,

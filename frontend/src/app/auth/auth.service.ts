@@ -34,10 +34,19 @@ export class AuthService {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': `${this.baseUrl1}`,
-        // 'x-access-token': this.tokenStorage.getToken()
       })
     };
     return this.http.post<string>(`${this.baseUrl}/contact/add`, data, httpOptionsSaved);
+  }
+  public getAllContacts() {
+    const httpOptionsSaved = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': `${this.baseUrl1}`,
+      })
+    };
+    return this.http.get(`${this.baseUrl}/allContacts/get`, httpOptionsSaved);
   }
   public createCategory(data: CategoryInfo): Observable<string> {
     const httpOptionsSaved = {

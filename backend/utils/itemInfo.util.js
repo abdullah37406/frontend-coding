@@ -33,6 +33,13 @@ class ItemInfo {
       linkwdin: info.linkedin,
     });
   }
+  async getAllContacts() {
+    return await db.Contact.findAll({
+      where: {
+        isDeleted: false,
+      },
+    });
+  }
   async parentItemCategories() {
     return await db.Categories.findAll({
       where: {

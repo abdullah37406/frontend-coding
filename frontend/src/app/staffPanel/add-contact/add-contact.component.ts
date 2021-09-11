@@ -96,8 +96,7 @@ this.checkPhoneValidity()
   }
   createContactSuccess(data) {
     this.myform.resetForm();
-    // this.fileList = [];
-    this.contactImage="";
+    this.contactImage="/assets/user.jpg";
     this.facebook=false;
     this.twitter=false;
     this.linkedin=false;

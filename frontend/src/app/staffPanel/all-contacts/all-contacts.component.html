@@ -21,13 +21,13 @@
         <i class="fas fa-search"></i>
     </div>
     <div class="col-12">
-        <div class="row">
+        <div class="row mt-2 mb-4" *ngFor="let data of allcontactsArray;">
             <div class="col-2 text-right">
-                <img src="/assets/black.jpg" class="image" alt="">
+                <img src="{{data.imgPath}}" class="image" alt="">
             </div>
             <div class="col-6 p-0 my-auto">
-                <p class="name">abdullah shah</p>
-                <p class="designation">developer</p>
+                <p class="name">{{data.firstName}} {{data.lastName}}</p>
+                <p class="designation">{{data.designation}}</p>
             </div>
             <div class="col-4 d-flex justify-content-between m-auto">
                 <i class="far fa-comments icon"></i>
