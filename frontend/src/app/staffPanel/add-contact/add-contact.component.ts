@@ -27,16 +27,16 @@ export class AddContactComponent implements OnInit {
     private Jarwis: AuthService,
     private snotifyService: ToastrService,
   ) { }
-  addItem = new CategoryInfo()
+  addContact = new CategoryInfo()
   facebook = false;
   twitter = false;
   linkedin = false;
 
 
   itemImage = "/assets/user.jpg"
-  addItemFormGroup: FormGroup;
+  addContactFormGroup: FormGroup;
   @ViewChild(FormGroupDirective) myform;
-  public addItemForm = {
+  public addContactForm = {
     name: new FormControl('', [Validators.required]),
     lastName: new FormControl(''),
     designation: new FormControl('', [Validators.required]),
@@ -45,28 +45,29 @@ export class AddContactComponent implements OnInit {
     primaryEmail: new FormControl('', [Validators.required]),
     secondaryEmail: new FormControl(''),
     bio: new FormControl('', [Validators.required]),
-    facebook: new FormControl(''),
-    twitter: new FormControl(''),
-    linkedin: new FormControl(''),
+    meeting: new FormControl(''),
+    // facebook: new FormControl(''),
+    // twitter: new FormControl(''),
+    // linkedin: new FormControl(''),
   }
   ngOnInit(): void {
     this.createForm();
   }
   createForm() {
-    this.addItemFormGroup = this.fb.group(this.addItemForm);
+    this.addContactFormGroup = this.fb.group(this.addContactForm);
   }
 
   onSubmitItemDetail() {
-    //   if (this.addItemFormGroup.invalid) {
+    //   if (this.addContactFormGroup.invalid) {
     //     return
     //   }
-    //   this.addItem.parentCategory = this.addItemForm.parentCategory.value;
-    //   this.addItem.name = this.addItemForm.subCategory.value;
-    //   this.addItem.itemInfo.name = this.addItemForm.name.value;
-    //   this.addItem.itemInfo.description = this.addItemForm.description.value;
-    //   this.addItem.itemInfo.price = this.addItemForm.price.value;
-    //   this.addItem.itemOrTable = "itemCreate";
-    //   this.Jarwis.createCategory(this.addItem).subscribe(
+    //   this.addContact.parentCategory = this.addContactForm.parentCategory.value;
+    //   this.addContact.name = this.addContactForm.subCategory.value;
+    //   this.addContact.itemInfo.name = this.addContactForm.name.value;
+    //   this.addContact.itemInfo.description = this.addContactForm.description.value;
+    //   this.addContact.itemInfo.price = this.addContactForm.price.value;
+    //   this.addContact.itemOrTable = "itemCreate";
+    //   this.Jarwis.createCategory(this.addContact).subscribe(
     //     (data) => this.categorySubmission(data),
     //     (error) => this.categorySubmissionError(error)
     //   );
@@ -106,9 +107,9 @@ export class AddContactComponent implements OnInit {
     return false;
   };
 
-  getNameError() { return this.addItemForm.name.hasError('required') ? 'You must enter first name' : ''; }
-  getDesignationError() { return this.addItemForm.designation.hasError('required') ? 'You must enter designation' : ''; }
-  getPrimaryPhoneError() { return this.addItemForm.primaryPhone.hasError('required') ? 'You must enter contact number' : ''; }
-  getPrimaryEmailError() { return this.addItemForm.primaryEmail.hasError('required') ? 'You must enter email' : ''; }
-  getBoError() { return this.addItemForm.bio.hasError('required') ? 'You must enter bio' : ''; }
+  getNameError() { return this.addContactForm.name.hasError('required') ? 'You must enter first name' : ''; }
+  getDesignationError() { return this.addContactForm.designation.hasError('required') ? 'You must enter designation' : ''; }
+  getPrimaryPhoneError() { return this.addContactForm.primaryPhone.hasError('required') ? 'You must enter contact number' : ''; }
+  getPrimaryEmailError() { return this.addContactForm.primaryEmail.hasError('required') ? 'You must enter email' : ''; }
+  getBoError() { return this.addContactForm.bio.hasError('required') ? 'You must enter bio' : ''; }
 }

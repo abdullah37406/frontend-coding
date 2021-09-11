@@ -3,7 +3,7 @@
         <h3>Create New Contact</h3>
     </div>
     <div class="col-6 mt-3">
-        <form class="example-form" (ngSubmit)="onSubmitItemDetail()" [formGroup]="addItemFormGroup" #myform1="ngForm">
+        <form class="example-form" (ngSubmit)="onSubmitItemDetail()" [formGroup]="addContactFormGroup" #myform1="ngForm">
             <div class="row">
                 <div class="text-right col-12">
                     <nz-upload [nzBeforeUpload]="beforeUpload" [(nzFileList)]="fileList">
@@ -13,71 +13,75 @@
                 </div>
 
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addItemForm.name" placeholder="First Name">
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.name" placeholder="First Name">
                     <mdb-error
-                        *ngIf="addItemForm.name.invalid && (addItemForm.name.dirty || addItemForm.name.touched || myform1.submitted)">
+                        *ngIf="addContactForm.name.invalid && (addContactForm.name.dirty || addContactForm.name.touched || myform1.submitted)">
                         {{ getNameError() }}
                     </mdb-error>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addItemForm.name" placeholder="Last Name">
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.name" placeholder="Last Name">
 
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addItemForm.designation"
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.designation"
                         placeholder="Designation">
                     <mdb-error
-                        *ngIf="addItemForm.designation.invalid && (addItemForm.designation.dirty || addItemForm.designation.touched || myform1.submitted)">
+                        *ngIf="addContactForm.designation.invalid && (addContactForm.designation.dirty || addContactForm.designation.touched || myform1.submitted)">
                         {{ getDesignationError() }}
                     </mdb-error>
                 </div>
 
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addItemForm.primaryPhone"
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.primaryPhone"
                         placeholder="Primary Phone">
                     <mdb-error
-                        *ngIf="addItemForm.primaryPhone.invalid && (addItemForm.primaryPhone.dirty || addItemForm.primaryPhone.touched || myform1.submitted)">
+                        *ngIf="addContactForm.primaryPhone.invalid && (addContactForm.primaryPhone.dirty || addContactForm.primaryPhone.touched || myform1.submitted)">
                         {{ getPrimaryPhoneError() }}
                     </mdb-error>
                 </div>
 
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addItemForm.secondaryPhone"
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.secondaryPhone"
                         placeholder="Secondary Phone">
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addItemForm.primaryEmail"
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.primaryEmail"
                         placeholder="Primary Email">
                     <mdb-error
-                        *ngIf="addItemForm.primaryEmail.invalid && (addItemForm.primaryEmail.dirty || addItemForm.primaryEmail.touched || myform1.submitted)">
+                        *ngIf="addContactForm.primaryEmail.invalid && (addContactForm.primaryEmail.dirty || addContactForm.primaryEmail.touched || myform1.submitted)">
                         {{ getPrimaryEmailError() }}
                     </mdb-error>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addItemForm.secondaryEmail"
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.secondaryEmail"
                         placeholder="Secondary Email">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.meeting"
+                        placeholder="Meeting Address">
+                </div>
+                
+                <div class="col-md-12 mt-2">
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.bio" placeholder="Bio">
+                    <mdb-error
+                        *ngIf="addContactForm.bio.invalid && (addContactForm.bio.dirty || addContactForm.bio.touched || myform1.submitted)">
+                        {{ getBoError() }}
+                    </mdb-error>
                 </div>
                 <div class="col-md-2 text-center">
                     <label>Facebook</label>
-                    <nz-switch [(ngModel)]="facebook"></nz-switch>
+                    <nz-switch [(ngModel)]="facebook" [ngModelOptions]="{standalone: true}"></nz-switch>
                 </div>
                 <div class="col-md-2 text-center">
                     <label>Twitter</label>
-                    <nz-switch [(ngModel)]="twitter"></nz-switch>
+                    <nz-switch [(ngModel)]="twitter" [ngModelOptions]="{standalone: true}"></nz-switch>
                 </div>
                 <div class="col-md-2 text-center">
                     <label>Linkedin</label>
-                    <nz-switch [(ngModel)]="linkedin"></nz-switch>
+                    <nz-switch [(ngModel)]="linkedin" [ngModelOptions]="{standalone: true}"></nz-switch>
                 </div>
-                <div class="col-md-12 mt-2">
-                    <input type="text" class="categoryInput" [formControl]="addItemForm.bio" placeholder="Bio">
-                    <mdb-error
-                        *ngIf="addItemForm.bio.invalid && (addItemForm.bio.dirty || addItemForm.bio.touched || myform1.submitted)">
-                        {{ getBoError() }}
-                    </mdb-error>
-
-                </div>
-                <div class="col-6">
+                <div class="col-6 text-right">
                     <button type="submit" class="save">Create</button>
                 </div>
             </div>
