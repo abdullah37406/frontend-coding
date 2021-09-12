@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <input type="text" class="categoryInput" [formControl]="addContactForm.firstName" placeholder="Firstv Name">
+                    <input type="text" class="categoryInput" [formControl]="addContactForm.firstName" placeholder="First Name">
                     <mdb-error
                         *ngIf="addContactForm.firstName.invalid && (addContactForm.firstName.dirty || addContactForm.firstName.touched || myform1.submitted)">
                         {{ getNameError() }}
