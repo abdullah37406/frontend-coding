@@ -1,10 +1,8 @@
 
-import { LoginInfo } from './../models/login-info';
 // import { User } from './../models/user';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { CategoryInfo } from '../models/category-info';
 import { ContactInfo } from '../models/contact-info';
 
 
